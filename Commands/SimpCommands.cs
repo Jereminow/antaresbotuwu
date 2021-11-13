@@ -72,7 +72,7 @@ namespace Antares_bot_uwu
             Random rand = new Random();
             int temp = rand.Next(1, 30);
             for (int i = 0; i < temp; i++) {
-                message = message + "pat" + " ";
+                message = message + "pat" + " " + "test" + " ";
             }
             await ReplyAsync(message);
         }
