@@ -14,11 +14,6 @@ namespace Antares_bot_uwu
         public async Task StarlessCommand() {
             await ReplyAsync("Starless is the cutest and sweetest stag ever <3");
         }
-        [Command("cocaine")]
-        public async Task CocaineCommand()
-        {
-            await ReplyAsync("Praise the Omnissiah!!!");
-        }
         [Command("skye")]
         public async Task SkyeCommand() {
             Emote skyeHug = Emote.Parse("<:skyeStarlessHug:813449589897297920>");
@@ -72,7 +67,7 @@ namespace Antares_bot_uwu
             Random rand = new Random();
             int temp = rand.Next(1, 30);
             for (int i = 0; i < temp; i++) {
-                message = message + "pat" + " " + "test" + " ";
+                message = message + "pat" + " ";
             }
             await ReplyAsync(message);
         }
@@ -100,6 +95,11 @@ namespace Antares_bot_uwu
         [Command("antares")]
         public async Task AntaresCommand() {
             await ReplyAsync("Dumbass doe who created this bot");
+        }
+        [Command("c")]
+        public async Task CCommand()
+        {
+            await ReplyAsync("I hate C, pls help me");
         }
     }
 }
