@@ -94,7 +94,12 @@ namespace Antares_bot_uwu
         }
         [Command("antares")]
         public async Task AntaresCommand() {
-            await Context.Channel.SendMessageAsync(text: "My sona");            
+            var embed = new EmbedBuilder();
+            embed.WithAuthor(Context.Message.Author.Username, Context.Message.Author.GetAvatarUrl())
+                .WithDescription($"The sona of the dummy doe who made this bot:")
+                .WithColor(Color.DarkBlue)
+                .Build();
+            await Context.Channel.SendMessageAsync(embed:embed.Build());            
         }
         [Command("c")]
         public async Task CCommand()
