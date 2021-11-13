@@ -94,7 +94,7 @@ namespace Antares_bot_uwu
         }
         [Command("antares")]
         public async Task AntaresCommand() {
-            await ReplyAsync("Dumbass doe who created this bot");
+            await Context.Channel.SendMessageAsync(text: "My sona");            
         }
         [Command("c")]
         public async Task CCommand()
