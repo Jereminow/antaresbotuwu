@@ -95,9 +95,9 @@ namespace Antares_bot_uwu
         [Command("antares")]
         public async Task AntaresCommand() {
             var embed = new EmbedBuilder();
-            embed.WithAuthor(Context.Message.Author.Username, Context.Message.Author.GetAvatarUrl())
-                .WithDescription($"The sona of the dummy doe who made this bot:")
+            embed.WithDescription($"The sona of the dummy doe who made this bot:")
                 .WithColor(Color.DarkBlue)
+                .WithImageUrl("https://cdn.discordapp.com/attachments/781097596558376990/888168147503423528/Antares_refsheet_final.png")
                 .Build();
             await Context.Channel.SendMessageAsync(embed:embed.Build());            
         }
