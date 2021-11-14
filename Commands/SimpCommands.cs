@@ -2,7 +2,9 @@
 using Discord.Commands;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -105,6 +107,25 @@ namespace Antares_bot_uwu
         public async Task CCommand()
         {
             await ReplyAsync("I hate C, pls help me");
+        }
+        [Command("searchfurry")]
+        public async Task SearchFurryCommand()
+        {
+            string html = string.Empty;
+            string url = @"https://e926.net/posts.json?limit=1&tags=order:random,rating:s,type:png,type:jpg,score:>40";
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            await ReplyAsync(html);
+
         }
     }
 }
