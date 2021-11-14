@@ -69,7 +69,7 @@ namespace Antares_bot_uwu
             Random rand = new Random();
             int temp = rand.Next(1, 30);
             for (int i = 0; i < temp; i++) {
-                message = message + "pat" + " ";
+                message = message + "pain" + " ";
             }
             await ReplyAsync(message);
         }
@@ -111,20 +111,24 @@ namespace Antares_bot_uwu
         [Command("searchfurry")]
         public async Task SearchFurryCommand()
         {
-            string html = string.Empty;
-            string url = @"https://e926.net/posts.json?limit=1&tags=order:random,rating:s,type:png,type:jpg,score:>40";
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            try
             {
-                html = reader.ReadToEnd();
-            }
+                string html = string.Empty;
+                string url = @"https://e926.net/posts.json?limit=1&tags=order:random,rating:s,type:png,type:jpg,score:>40";
 
-            await ReplyAsync(html.Substring(0,100));
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.AutomaticDecompression = DecompressionMethods.GZip;
+
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    html = reader.ReadToEnd();
+                }
+
+                await ReplyAsync(html.Substring(0, 100));
+            }
+            catch (Exception ex) { await ReplyAsync(ex.Message); }
 
         }
     }
