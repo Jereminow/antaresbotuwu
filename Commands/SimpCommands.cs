@@ -114,7 +114,7 @@ namespace Antares_bot_uwu
             try
             {
                 string html = string.Empty;
-                string url = @"https://e926.net/posts.json?limit=1&tags=order:random,rating:s,type:png,type:jpg,score:>40";
+                string url = @"https://e926.net/posts.json?limit=1&tags=order:random rating:s type:png type:jpg";
 
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.AutomaticDecompression = DecompressionMethods.GZip;
