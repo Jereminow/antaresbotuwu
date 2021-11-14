@@ -69,7 +69,7 @@ namespace Antares_bot_uwu
             Random rand = new Random();
             int temp = rand.Next(1, 30);
             for (int i = 0; i < temp; i++) {
-                message = message + "pain" + " ";
+                message = message + "pat" + " ";
             }
             await ReplyAsync(message);
         }
@@ -124,7 +124,7 @@ namespace Antares_bot_uwu
                 html = reader.ReadToEnd();
             }
 
-            await ReplyAsync(html);
+            await ReplyAsync(html.Substring(0,100));
 
         }
     }
