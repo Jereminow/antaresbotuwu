@@ -118,6 +118,12 @@ namespace Antares_bot_uwu
 
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.AutomaticDecompression = DecompressionMethods.GZip;
+                request.UserAgent = "Antares Bot UwU";
+                request.ContentType = "application/json";
+                request.UseDefaultCredentials = true;
+                request.Credentials = CredentialCache.DefaultCredentials;
+                request.Proxy.Credentials = CredentialCache.DefaultCredentials;
+
 
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 using (Stream stream = response.GetResponseStream())
@@ -125,7 +131,6 @@ namespace Antares_bot_uwu
                 {
                     html = reader.ReadToEnd();
                 }
-                request.UserAgent = "Antares Bot UwU";
 
                 await ReplyAsync(html.Substring(0, 100));
             }
