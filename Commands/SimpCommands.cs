@@ -109,12 +109,12 @@ namespace Antares_bot_uwu
             await ReplyAsync("I hate C, pls help me");
         }
         [Command("searchfurry")]
-        public async Task SearchFurryCommand()
+        public async Task SearchFurryCommand([Remainder] string tags)
         {
             try
             {
                 string html = string.Empty;
-                string url = @"https://e926.net/posts.json?limit=1&tags=order:random rating:s type:png type:jpg score:>40";
+                string url = @"https://e926.net/posts.json?limit=1&tags=order:random rating:s type:png type:jpg score:>40 -comic" + " " + tags;
 
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.AutomaticDecompression = DecompressionMethods.GZip;
