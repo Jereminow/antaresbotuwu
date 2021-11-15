@@ -116,7 +116,7 @@ namespace Antares_bot_uwu
                 string html = string.Empty;
                 string url = @"https://e926.net/posts.json?limit=1&tags=order:random rating:s type:png type:jpg score:>40 -comic";
                 if (!tags.Length.Equals(0)) {
-                    url.Concat(" " + tags);
+                    url = url + $" {tags}";
                 }
 
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
