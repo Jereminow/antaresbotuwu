@@ -131,11 +131,11 @@ namespace Antares_bot_uwu
                 {
                     html = reader.ReadToEnd();
                 }
-                string[] temp_split = html.Split("url\":\"");
-                string[] temp_split2 = temp_split[0].Split("\"");
+                string[] temp_split = html.Split("url");
+                //string[] temp_split2 = temp_split[0].Split("\"");
 
                 //await ReplyAsync(html.Substring(0, 100));
-                await ReplyAsync(temp_split[0].Substring(0,200));
+                await ReplyAsync(temp_split[1].Substring(0,200));
             }
             catch (Exception ex) { await ReplyAsync(ex.Message); }
 
