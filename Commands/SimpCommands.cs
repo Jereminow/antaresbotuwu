@@ -131,7 +131,7 @@ namespace Antares_bot_uwu
                 {
                     html = reader.ReadToEnd();
                 }
-                string[] temp_split = html.Split("url");
+                string[] temp_split = html.Split("id");
                 //string[] temp_split2 = temp_split[0].Split("\"");
 
                 await ReplyAsync(html.Substring(0, 100));
