@@ -1,4 +1,6 @@
 ﻿TOKEN.txt
+/.vs
+.vs
 /AntaresBot/.vs/AntaresBot
 /AntaresBot/obj/Debug/netcoreapp2.1
 /.vs/AntaresBot
