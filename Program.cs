@@ -29,7 +29,7 @@ namespace Antares_bot_uwu
             _client.Log += Client_Log;
             // Bot Authentification init
             RegisterCommandsAsync();
-            string token = Environment.GetEnvironmentVariable("TOKEN");
+            string token = Environment.GetEnvironmentVariable("ANTARESTOKEN");
  
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();

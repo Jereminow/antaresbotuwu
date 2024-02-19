@@ -16,16 +16,13 @@ namespace Antares_bot_uwu
         public async Task StarlessCommand() {
             await ReplyAsync("Starless is the cutest and sweetest stag ever <3");
         }
-        [Command("skye")]
-        public async Task SkyeCommand() {
-            Emote skyeHug = Emote.Parse("<:skyeStarlessHug:813449589897297920>");
-            await ReplyAsync(@$"Skye is the cutest woofie >w< {skyeHug}");
-        }
+
         [Command("ping")]
         public async Task PingCommand()
         {
             await ReplyAsync($"Pong {Context.Message.Author.Username} <@{Context.Message.Author.Id}>");
         }
+
         [Command("weeb")]
         public async Task WeebCommand()
         {
@@ -37,6 +34,7 @@ namespace Antares_bot_uwu
                 await ReplyAsync($"{Context.Message.Author.Username} is {randomPercent}% weeb");
             }
         }
+
         [Command("silksong")]
         public async Task SilksongCommand() {
             await ReplyAsync("https://www.youtube.com/watch?v=ib5AfwGmnZE");
@@ -50,18 +48,21 @@ namespace Antares_bot_uwu
                 await ReplyAsync($"{Context.Message.Author.Username} is ∞% cute!");
             }*/
             await ReplyAsync($"{Context.Message.Author.Username} is {randomN}% cute!");
-            
+
         }
+
         [Command("rapax")]
         public async Task RapaxCommand() {
             await ReplyAsync("Cute translator foxy friend ^^");
         }
+
         [Command("say")]
         public async Task SayCommand([Remainder] string message) {
             
             await ReplyAsync(message);
             await Context.Message.DeleteAsync();
         }
+
         [Command("pat")]
         public async Task PatCommand()
         {
@@ -73,27 +74,23 @@ namespace Antares_bot_uwu
             }
             await ReplyAsync(message);
         }
+
         [Command("shark")]
         public async Task SharkCommand()
         {
             await ReplyAsync("Definitely not a furry :wink: ");
         }
-        [Command("fiz")]
-        public async Task FizCommand() {
-            await ReplyAsync(":wolf: Awesome wolf homie! ^^");
-        }
+
         [Command("pyru")]
         public async Task PyruCommand() {
             await ReplyAsync("Smart French gamer friend hon hon hon ^^");
         }
-        [Command("aurora")]
-        public async Task AuroraCommand() {
-            await ReplyAsync("Cute Belgian friend who loves psychology :3");
-        }
+
         [Command("mere")]
         public async Task MereCommand() {
             await ReplyAsync("One of the smartest, kindest, friendliest and cutest people in the world >w<");
         }
+
         [Command("antares")]
         public async Task AntaresCommand() {
             var embed = new EmbedBuilder();
@@ -103,11 +100,13 @@ namespace Antares_bot_uwu
                 .Build();
             await Context.Channel.SendMessageAsync(embed:embed.Build());            
         }
+
         [Command("c")]
         public async Task CCommand()
         {
             await ReplyAsync("I hate C, pls help me");
         }
+
         [Command("searchfurry")]
         public async Task SearchFurryCommand([Remainder] string tags)
         {
