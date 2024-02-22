@@ -33,10 +33,10 @@ namespace Antares_bot_uwu
             RegisterCommandsAsync();
             string token = Environment.GetEnvironmentVariable("ANTARESTOKEN");
 
-            await _client.StartAsync();
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.SetGameAsync("Antares Bot 2.0");
             await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
+            await _client.StartAsync();
             await Task.Delay(-1);
         }
 
