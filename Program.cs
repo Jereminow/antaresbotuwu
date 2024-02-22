@@ -11,7 +11,7 @@ namespace Antares_bot_uwu
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             new Program().RunBot().GetAwaiter().GetResult();
         }
@@ -19,8 +19,10 @@ namespace Antares_bot_uwu
         private CommandService _commands;
         private IServiceProvider _services;
 
-        public async Task RunBot() {
-            _client = new DiscordSocketClient();
+        public async Task RunBot()
+        {
+            var config = new DiscordSocketConfig { GatewayIntents = GatewayIntents.GuildMessages };
+            _client = new DiscordSocketClient(config);
             _commands = new CommandService();
             _services = new ServiceCollection()
                 .AddSingleton(_client)
@@ -30,17 +32,17 @@ namespace Antares_bot_uwu
             // Bot Authentification init
             RegisterCommandsAsync();
             string token = Environment.GetEnvironmentVariable("ANTARESTOKEN");
- 
-            await _client.LoginAsync(TokenType.Bot, token);
-            await _client.StartAsync();
-            await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
 
+            await _client.StartAsync();
+            await _client.LoginAsync(TokenType.Bot, token);
+            await _client.SetGameAsync("Antares Bot 2.0");
+            await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
             await Task.Delay(-1);
         }
 
         private void RegisterCommandsAsync()
         {
-            MessageAddedHandler messageAddedHandler = new MessageAddedHandler(_client, _commands, _services);
+            MessageAddedHandler messageAddedHandler = new (_client, _commands, _services);
             _client.MessageReceived += messageAddedHandler.HandleCommandAsync;
         }
 
