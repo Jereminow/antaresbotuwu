@@ -21,7 +21,7 @@ namespace Antares_bot_uwu
 
         public async Task RunBot()
         {
-            var config = new DiscordSocketConfig { GatewayIntents = GatewayIntents.GuildMessages };
+            var config = new DiscordSocketConfig { GatewayIntents = GatewayIntents.Guilds | GatewayIntents.GuildMessages | GatewayIntents.MessageContent };
             _client = new DiscordSocketClient(config);
             _commands = new CommandService();
             _services = new ServiceCollection()
