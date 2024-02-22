@@ -29,7 +29,7 @@ namespace Antares_bot_uwu
             if (Context.Message.Author.Username.Contains("Starless")) {
                 await ReplyAsync($"{Context.Message.Author.Username} is 100% weeb");
             } else {
-                Random rand = new Random();
+                Random rand = new ();
                 int randomPercent = rand.Next(0, 100);
                 await ReplyAsync($"{Context.Message.Author.Username} is {randomPercent}% weeb");
             }
@@ -42,7 +42,7 @@ namespace Antares_bot_uwu
 
         [Command("cute")]
         public async Task CuteCommand() {
-            Random rand = new Random();
+            Random rand = new ();
             int randomN = rand.Next(1000, 100000);
             /*if (Context.Message.Author.Username.Contains("Skye") || Context.Message.Author.Username.Contains("Zeno")) {
                 await ReplyAsync($"{Context.Message.Author.Username} is ∞% cute!");
@@ -67,7 +67,7 @@ namespace Antares_bot_uwu
         public async Task PatCommand()
         {
             string message = "";
-            Random rand = new Random();
+            Random rand = new ();
             int temp = rand.Next(1, 30);
             for (int i = 0; i < temp; i++) {
                 message = message + "pat" + " ";
@@ -115,7 +115,7 @@ namespace Antares_bot_uwu
                 string html = string.Empty;
                 string url = @"https://e926.net/posts.json?limit=1&tags=order:random rating:s type:png type:jpg score:>40 -comic";
                 if (!tags.Length.Equals(0)) {
-                    url = url + $" {tags}";
+                    url = $"{url} {tags}";
                 }
 
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -129,7 +129,7 @@ namespace Antares_bot_uwu
 
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 using (Stream stream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(stream))
+                using (StreamReader reader = new(stream))
                 {
                     html = reader.ReadToEnd();
                 }
